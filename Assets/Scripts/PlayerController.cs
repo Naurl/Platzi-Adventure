@@ -16,11 +16,13 @@ public class PlayerController : MonoBehaviour
     private const string animp_LastVertical = "LastVertical";
 
     private Animator animator;
+    private Rigidbody2D playerRigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -31,18 +33,33 @@ public class PlayerController : MonoBehaviour
 
         if (Math.Abs(Input.GetAxisRaw(horizontal)) > 0.5f)
         {
-            this.transform.Translate(new Vector3(Input.GetAxisRaw(horizontal) * speed * Time.deltaTime,0,0));
+            //this.transform.Translate(new Vector3(Input.GetAxisRaw(horizontal) * speed * Time.deltaTime,0,0));
+            playerRigidBody.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed * Time.deltaTime, playerRigidBody.velocity.y);//Movimiento recomendado cuando se hace uso del motor de fisicas con cuerpos rigidos.
             isWalking = true;
             lastMovement = new Vector2(Input.GetAxisRaw(horizontal), 0);
+        }
+        else
+        {
+            playerRigidBody.velocity = new Vector2(0f, playerRigidBody.velocity.y);
         }
 
         if (Math.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
         {
-            this.transform.Translate(new Vector3(0, Input.GetAxisRaw(vertical) * speed * Time.deltaTime, 0));
+            //this.transform.Translate(new Vector3(0, Input.GetAxisRaw(vertical) * speed * Time.deltaTime, 0));
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, Input.GetAxisRaw(vertical) * speed * Time.deltaTime);//Movimiento recomendado cuando se hace uso del motor de fisicas con cuerpos rigidos.
             isWalking = true;
             lastMovement = new Vector2(0, Input.GetAxisRaw(vertical));
         }
+        else
+        {
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, 0f);
+        }
 
+        //Al usar cuerpos rigidos los cuerpos luego de moverse generan cierta inercia, pero en nuestro caso queremos que pare de golpe.
+        if(!isWalking)
+        {
+            playerRigidBody.velocity = Vector2.zero;
+        }
 
         animator.SetBool(animp_isWalking, isWalking);
         animator.SetFloat(animp_LastHorizontal, lastMovement.x);
