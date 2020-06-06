@@ -5,20 +5,23 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public string tagTarget = "Player";
+
     [SerializeField]
     private GameObject followTarget;
+
     [SerializeField]
     private Vector3 targetPosition;
     [SerializeField]
     private float cameraSpeed = 4.0f;
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if(!followTarget)
+        {
+            followTarget = GameObject.FindGameObjectWithTag(tagTarget);
+        }
     }
-
     // Update is called once per frame
     void Update()
     {
