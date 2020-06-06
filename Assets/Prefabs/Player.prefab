@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 205943347}
   - component: {fileID: 205943346}
   m_Layer: 0
-  m_Name: HitPoint
+  m_Name: Swing zone
   m_TagString: HitPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

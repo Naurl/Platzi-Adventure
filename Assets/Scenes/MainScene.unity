@@ -18731,6 +18731,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1834a9913a07e6488c3b35d68fefe31, type: 3}
+--- !u!4 &1881539112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1427738974, guid: 37209965007bd0d44a40228c8889041a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4663577839552170586}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1916027179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18800,6 +18806,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1834a9913a07e6488c3b35d68fefe31, type: 3}
+--- !u!1 &1918690281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918690282}
+  m_Layer: 0
+  m_Name: Hit Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1918690282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918690281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.331, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1881539112}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2096536343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8197797618705831672, guid: d1834a9913a07e6488c3b35d68fefe31,
@@ -18882,6 +18918,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 205943344, guid: 37209965007bd0d44a40228c8889041a, type: 3}
+      propertyPath: m_Name
+      value: HitPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 205943346, guid: 37209965007bd0d44a40228c8889041a, type: 3}
+      propertyPath: hurtAnimation
+      value: 
+      objectReference: {fileID: 8110737687256518526, guid: 50748991501863b42a278ef224a7f354,
+        type: 3}
+    - target: {fileID: 205943346, guid: 37209965007bd0d44a40228c8889041a, type: 3}
+      propertyPath: HitPoint
+      value: 
+      objectReference: {fileID: 1918690281}
     - target: {fileID: 4663577840471429712, guid: 37209965007bd0d44a40228c8889041a,
         type: 3}
       propertyPath: m_LocalPosition.x
