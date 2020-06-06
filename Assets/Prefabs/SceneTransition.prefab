@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newPlaceName: Interior
+  goToPlaceName: GenericHouse
 --- !u!61 &3821727089572282352
 BoxCollider2D:
   m_ObjectHideFlags: 0

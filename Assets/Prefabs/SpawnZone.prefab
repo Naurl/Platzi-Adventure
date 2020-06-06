@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abad105ebe3566740b4e5d6ada91302e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placeName: GenericHouseOut
