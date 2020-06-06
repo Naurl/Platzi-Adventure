@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public static bool playerCreated;
 
+    public string nextPlaceName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +48,7 @@ public class PlayerController : MonoBehaviour
         if (Math.Abs(Input.GetAxisRaw(horizontal)) > 0.5f)
         {
             //this.transform.Translate(new Vector3(Input.GetAxisRaw(horizontal) * speed * Time.deltaTime,0,0));
-            playerRigidBody.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed * Time.deltaTime, playerRigidBody.velocity.y);//Movimiento recomendado cuando se hace uso del motor de fisicas con cuerpos rigidos.
+            playerRigidBody.velocity = new Vector2(Input.GetAxisRaw(horizontal) * speed, playerRigidBody.velocity.y);//Movimiento recomendado cuando se hace uso del motor de fisicas con cuerpos rigidos.//Para este movimiento de cuerpos rigidos no es necesario multiplicar el delta time
             isWalking = true;
             lastMovement = new Vector2(Input.GetAxisRaw(horizontal), 0);
         }
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if (Math.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
         {
             //this.transform.Translate(new Vector3(0, Input.GetAxisRaw(vertical) * speed * Time.deltaTime, 0));
-            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, Input.GetAxisRaw(vertical) * speed * Time.deltaTime);//Movimiento recomendado cuando se hace uso del motor de fisicas con cuerpos rigidos.
+            playerRigidBody.velocity = new Vector2(playerRigidBody.velocity.x, Input.GetAxisRaw(vertical) * speed);//Movimiento recomendado cuando se hace uso del motor de fisicas con cuerpos rigidos.//Para este movimiento no es necesario multiplicar el delta time
             isWalking = true;
             lastMovement = new Vector2(0, Input.GetAxisRaw(vertical));
         }
