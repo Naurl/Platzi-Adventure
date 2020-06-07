@@ -30,12 +30,15 @@ public class PlayerController : MonoBehaviour
 
     private GameObject HitPoint = null;
 
+    private SFXManager sfxManager;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
         HitPoint = GameObject.FindGameObjectWithTag("HitPoint");
+        sfxManager = FindObjectOfType<SFXManager>();
 
         if (!playerCreated)
         {
@@ -46,6 +49,8 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(this.transform.gameObject);
         }
+
+        lastMovement = new Vector2(1f, 0f);//Set dafault lastMovement on start to avoid animator bug.
     }
 
     // Update is called once per frame
@@ -61,6 +66,7 @@ public class PlayerController : MonoBehaviour
             attackTimeCounter = attackTime;
             //playerRigidBody.velocity = Vector2.zero;
             animator.SetBool(animp_isAttacking, true);
+            sfxManager.playerAttack.Play();
 
             if (HitPoint != null)
             {

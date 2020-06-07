@@ -50,11 +50,21 @@ public class DamagePlayer : MonoBehaviour
             //timeRevivalCounter = timeToRevivePlayer;
             //thePlayer = collision.gameObject;//Me aseguro de obtener el ultimo objeto que representa al jugador.
 
-            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+            //collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+
+            CharacterStats stats = collision.gameObject.GetComponent<CharacterStats>();
+            int totalDamage = damage - stats.defenseLevels[stats.currentLevel];
+
+            if(totalDamage <= 0)
+            {
+                totalDamage = 1;
+            }
+
+            collision.gameObject.GetComponent<HealthManager>().DamageCharacter(totalDamage);
 
             GameObject damageNumberClone = (GameObject)Instantiate(damageNumber, collision.gameObject.transform.position, Quaternion.Euler(Vector3.zero));//Quaternion.Euler(Vector3.zero) reinicio la rotacion del objeto que instanciamos para no tomar la rotacion del hitpoint.
 
-            damageNumberClone.GetComponent<DamageNumber>().damagePoints = damage;
+            damageNumberClone.GetComponent<DamageNumber>().damagePoints = totalDamage;
             damageNumberClone.GetComponent<DamageNumber>().damageText = damageNumberClone.GetComponentInChildren<Text>();
             damageNumberClone.GetComponent<DamageNumber>().damageText.color = new Color(255f, 0f, 0f);
             //playerReviving = true;

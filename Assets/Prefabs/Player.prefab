@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 4663577840471429719}
   - component: {fileID: 4663577840471429716}
   - component: {fileID: 2170510704161273168}
+  - component: {fileID: 1330305040}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -461,3 +462,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   currentHealth: 0
+  flashActive: 0
+  flashLength: 1
+  expWhenDefeated: 0
+--- !u!114 &1330305040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663577840471429714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdf6676b0cd86745ad64c687bc717ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  currentExp: 0
+  expToLevelUp: 000000000a000000140000003200000064000000c8000000f4010000e8030000d007000088130000
