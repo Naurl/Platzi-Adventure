@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DamagePlayer : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class DamagePlayer : MonoBehaviour
     private GameObject thePlayer = null;
 
     public int damage;
+    public GameObject damageNumber;
 
 
     private void Start()
@@ -49,6 +51,12 @@ public class DamagePlayer : MonoBehaviour
             //thePlayer = collision.gameObject;//Me aseguro de obtener el ultimo objeto que representa al jugador.
 
             collision.gameObject.GetComponent<HealthManager>().DamageCharacter(damage);
+
+            GameObject damageNumberClone = (GameObject)Instantiate(damageNumber, collision.gameObject.transform.position, Quaternion.Euler(Vector3.zero));//Quaternion.Euler(Vector3.zero) reinicio la rotacion del objeto que instanciamos para no tomar la rotacion del hitpoint.
+
+            damageNumberClone.GetComponent<DamageNumber>().damagePoints = damage;
+            damageNumberClone.GetComponent<DamageNumber>().damageText = damageNumberClone.GetComponentInChildren<Text>();
+            damageNumberClone.GetComponent<DamageNumber>().damageText.color = new Color(255f, 0f, 0f);
             //playerReviving = true;
             //timeRevivalCounter = timeToRevivePlayer;
             //thePlayer = collision.gameObject;//Me aseguro de obtener el ultimo objeto que representa al jugador.

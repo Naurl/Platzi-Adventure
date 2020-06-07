@@ -183,6 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToRevivePlayer: 2
   damage: 10
+  damageNumber: {fileID: 3669571914695554494, guid: 40062ac8a8102f749a7692261e530d34,
+    type: 3}
 --- !u!114 &3083674821037062356
 MonoBehaviour:
   m_ObjectHideFlags: 0

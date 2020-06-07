@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5517514655524724931}
   - component: {fileID: 6381551979469399222}
   - component: {fileID: 2086319736384051405}
+  - component: {fileID: 363730665978864792}
   m_Layer: 5
   m_Name: DamageNumber
   m_TagString: Untagged
@@ -112,6 +113,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa673ad36ac0a24d9c4fe056fd5125d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSpeed: 1
+  damagePoints: 0
+  damageText: {fileID: 0}
+--- !u!114 &363730665978864792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669571914695554494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd43f1ec62749242aa0d62779f61834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 2
 --- !u!1 &4470876471837132620
 GameObject:
   m_ObjectHideFlags: 0
